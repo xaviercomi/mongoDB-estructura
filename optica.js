@@ -1,14 +1,10 @@
-// Select the database to use.
+require('./mongoConexio')
+
 use('optica');
 
-// The drop() command destroys all data from a collection.
-// Make sure you run it against the correct database and collection.
-db.optica.drop();
+db.Ullera.drop();
+db.Client.drop();
 
-db.createCollection('Client');
-db.createCollection(Ullera);
-
-// Insert documents into Ullera collection
 db.Ullera.insert([
   { 
     'id': 'U001',
