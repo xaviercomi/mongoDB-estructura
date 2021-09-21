@@ -2,11 +2,15 @@
 const { MongoClient }  = require('mongodb');
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
+
 client.connect(err => {
   if (!err) {
-    console.log('It is a miracle... we are conected! 🙏');
+      console.log('It is a miracle... we are conected! 🙏');
+      console.log('Entering data...')
+      db = client.db('optica');
+      db.dropDatabase();
 
-    client.db('optica').collection('Ullera').insertMany([
+      client.db('optica').collection('Ullera').insertMany([
 
       { 
         '_id': 'U001',
@@ -123,8 +127,12 @@ client.connect(err => {
   ]);
   
   } else {
-      console.log(err.message);
-      client.close();
-  }
+      console.log(err.message);   
+  } 
+
 });
 
+setTimeout(function() {
+  console.log('and we are close!')
+  client.close()
+}, 5000);
