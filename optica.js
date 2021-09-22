@@ -135,4 +135,4 @@ client.connect(err => {
 setTimeout(function() {
   console.log('and we are close!')
   client.close()
-}, 5000);
+}, 3000);
