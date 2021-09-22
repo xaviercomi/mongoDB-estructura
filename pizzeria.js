@@ -1,5 +1,3 @@
-
-const { isDoWhileStatement } = require('@babel/types');
 const { MongoClient }  = require('mongodb');
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
@@ -54,27 +52,27 @@ client.connect(err => {
   
     client.db('pizzeria').collection('Client').insertMany([
   
-      { 'id_': 'C001', 'name': 'Josep Rouras', 'postalCode': 08034, 'phone': '664567634', 'city': '03T', 'province': 'TAR'},
-      { 'id_': 'C002', 'name': 'María Canals', 'postalCode': 08017, 'phone': '664565634', 'city': '02G', 'province': 'GIR'},
-      { 'id_': 'C003', 'name': 'Jordi Crap', 'postalCode': 08025, 'phone': '647567634', 'city': '03T', 'province': 'TAR'},
-      { 'id_': 'C004', 'name': 'Marta Gomis', 'postalCode': 08045, 'phone': '623567634', 'city': '04L', 'province': 'LLE'},
-      { 'id_': 'C005', 'name': 'Lorena Brown', 'postalCode': 08080, 'phone': '665667634', 'city': '01B', 'province': 'BCN'},
-      { 'id_': 'C006', 'name': 'Kent Gloss', 'postalCode': 08003, 'phone': '634567634', 'city': '02G', 'province': 'GIR'},
+      { '_id': 'C001', 'name': 'Josep Rouras', 'postalCode': 08034, 'phone': '664567634', 'city': '03T', 'province': 'TAR'},
+      { '_id': 'C002', 'name': 'María Canals', 'postalCode': 08017, 'phone': '664565634', 'city': '02G', 'province': 'GIR'},
+      { '-id': 'C003', 'name': 'Jordi Crap', 'postalCode': 08025, 'phone': '647567634', 'city': '03T', 'province': 'TAR'},
+      { '_id': 'C004', 'name': 'Marta Gomis', 'postalCode': 08045, 'phone': '623567634', 'city': '04L', 'province': 'LLE'},
+      { '_id': 'C005', 'name': 'Lorena Brown', 'postalCode': 08080, 'phone': '665667634', 'city': '01B', 'province': 'BCN'},
+      { '_id': 'C006', 'name': 'Kent Gloss', 'postalCode': 08003, 'phone': '634567634', 'city': '02G', 'province': 'GIR'},
   
   ]);
 
     client.db('pizzeria').collection('Product').insertMany([
 
-        { '_id': 'PP001', 'name': 'Napoletana', 'description': 'tomato sauce, buffalo mozzarella, basil', 'image': new File('image/'), 'price': 12.45},
-        { '_id': 'PP002', 'name': 'Margarita', 'description': 'tomato sauce', 'image': new File('image/'), 'price': 10.45},
-        { '_id': 'PD001', 'name': 'coke', 'description': 'soda lite', 'image': new File('image/'), 'price': 1.45},
-        { '_id': 'PD002', 'name': 'beer', 'description': 'pale ale', 'image': new File('image/'), 'price': 2.45},
-        { '_id': 'PH001', 'name': 'Fatboy', 'description': 'Burguer cheeese', 'image': new File('image/'), 'price': 9.45},
-        { '_id': 'PH002', 'name': 'BigPork', 'description': 'Burguer bacon', 'image': new File('image/'), 'price': 11.00},
+        { '_id': 'PP001', 'name': 'Napoletana', 'description': 'tomato sauce, buffalo mozzarella, basil', 'image': 'pictures/napoletana.jpg', 'price': 12.45},
+        { '_id': 'PP002', 'name': 'Margarita', 'description': 'tomato sauce', 'image': 'pictures/margarita.jpg', 'price': 10.45},
+        { '_id': 'PD001', 'name': 'coke', 'description': 'soda lite', 'image': 'pictures/coke.jpg', 'price': 1.45},
+        { '_id': 'PD002', 'name': 'beer', 'description': 'pale ale', 'image': 'pictures/beer.jpg', 'price': 2.45},
+        { '_id': 'PH001', 'name': 'Fatboy', 'description': 'Burguer cheeese', 'image': 'pictures/chesseBurger.jpg', 'price': 9.45},
+        { '_id': 'PH002', 'name': 'BigPork', 'description': 'Burguer bacon', 'image': 'pictures/kingBacon', 'price': 11.00},
 
     ])
 
-    client.db('pizzeria').collection('city').insertMany([
+    client.db('pizzeria').collection('City').insertMany([
 
         { '_id': '01B', 'name': 'Barcelona'},
         { '_id': '02G', 'name': 'Girona'},
@@ -83,7 +81,7 @@ client.connect(err => {
 
     ])
 
-    client.db('pizzeria').collection('province').insertMany([
+    client.db('pizzeria').collection('Province').insertMany([
 
         { '_id': 'TAR', 'name': 'Tarragona'},
         { '_id': 'GIR', 'name': 'Girona'},
@@ -116,9 +114,7 @@ client.connect(err => {
 
 });
 
-// setTimeout(function() {
-//   console.log('and we are close!')
-//   client.close()
-// }, 3000);
-
-//client.connection.close();
+setTimeout(function() {
+  console.log('and we are close!')
+  client.close()
+  }, 3000);

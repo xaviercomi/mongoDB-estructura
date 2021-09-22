@@ -125,14 +125,16 @@ client.connect(err => {
       { '_id': 6, 'nom': 'Kent Gloss', 'codi postal': 08003, 'telefon': '634567634', 'registre': new Date('2016-03-01T08:00:00Z'), 'recomanat': 'Josep Rouras', 'venedor/a': 'Manel Fous'},
   
   ]);
+
   
   } else {
       console.log(err.message);   
   } 
 
+
 });
 
-setTimeout(function() {
-  console.log('and we are close!')
-  client.close()
-}, 3000);
+// setTimeout(function() {
+//   console.log('and we are close!')
+//   client.close()
+// }, 3000);
