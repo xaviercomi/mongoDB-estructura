@@ -52,12 +52,12 @@ client.connect(err => {
   
     client.db('pizzeria').collection('Client').insertMany([
   
-      { '_id': 'C001', 'name': 'Josep Rouras', 'postalCode': 08034, 'phone': '664567634', 'city': '03T', 'province': 'TAR'},
-      { '_id': 'C002', 'name': 'María Canals', 'postalCode': 08017, 'phone': '664565634', 'city': '02G', 'province': 'GIR'},
-      { '-id': 'C003', 'name': 'Jordi Crap', 'postalCode': 08025, 'phone': '647567634', 'city': '03T', 'province': 'TAR'},
-      { '_id': 'C004', 'name': 'Marta Gomis', 'postalCode': 08045, 'phone': '623567634', 'city': '04L', 'province': 'LLE'},
-      { '_id': 'C005', 'name': 'Lorena Brown', 'postalCode': 08080, 'phone': '665667634', 'city': '01B', 'province': 'BCN'},
-      { '_id': 'C006', 'name': 'Kent Gloss', 'postalCode': 08003, 'phone': '634567634', 'city': '02G', 'province': 'GIR'},
+      { '_id': 'C001', 'name': 'Josep Rouras', 'postalCode': 08034, 'phone': '664567634', 'Location': {'city': 'Tarragona', 'province': 'Tarragona'}},
+      { '_id': 'C002', 'name': 'María Canals', 'postalCode': 08017, 'phone': '664565634', 'Location': {'city': 'Barcelona', 'province': 'Barcelona'}},
+      { '-id': 'C003', 'name': 'Jordi Crap', 'postalCode': 08025, 'phone': '647567634', 'Location': {'city': 'Girona', 'province': 'Girona'}},
+      { '_id': 'C004', 'name': 'Marta Gomis', 'postalCode': 08045, 'phone': '623567634', 'Location': {'city': 'Barcelona', 'province': 'Barcelona'}},
+      { '_id': 'C005', 'name': 'Lorena Brown', 'postalCode': 08080, 'phone': '665667634', 'Location': {'city': 'Tarragona', 'province': 'Tarragona'}},
+      { '_id': 'C006', 'name': 'Kent Gloss', 'postalCode': 08003, 'phone': '634567634', 'Location': {'city': 'Girona', 'province': 'Girona'}},
   
   ]);
 
@@ -72,39 +72,22 @@ client.connect(err => {
 
     ])
 
-    client.db('pizzeria').collection('City').insertMany([
-
-        { '_id': '01B', 'name': 'Barcelona'},
-        { '_id': '02G', 'name': 'Girona'},
-        { '_id': '03T', 'name': 'Tarragona'},
-        { '_id': '04L', 'name': 'Lleida'},
-
-    ])
-
-    client.db('pizzeria').collection('Province').insertMany([
-
-        { '_id': 'TAR', 'name': 'Tarragona'},
-        { '_id': 'GIR', 'name': 'Girona'},
-        { '_id': 'BCN', 'name': 'Barcelona'},
-        { '_id': 'LLE', 'name': 'Lleida'},
-
-    ])
 
     client.db('pizzeria').collection('Employee').insertMany([
 
-        { '_id': 'E001', 'name': 'María', 'lastName': 'Ganja', 'nif': '34566723H', 'phone': '671699932', 'job': 'chef'},
-        { '_id': 'E002', 'name': 'James', 'lastName': 'Juice', 'nif': '34578723J', 'phone': '671688832', 'job': 'chef' },
-        { '_id': 'E003', 'name': 'Robert', 'lastname': 'Almost','nif': '34566623K', 'phone': '671666332', 'job': 'delivery man' },
-        { '_id': 'E004', 'name': 'Jonh', 'lastName:': 'Oconnor', 'nif': '345987238', 'phone': '674564332', 'job': 'delivery man'},
+        { '_id': 'E001', '_id_shop': 'B001', 'name': 'María', 'lastName': 'Ganja', 'nif': '34566723H', 'phone': '671699932', 'job': 'chef'},
+        { '_id': 'E002', '_id_shop': 'B002', 'name': 'James', 'lastName': 'Juice', 'nif': '34578723J', 'phone': '671688832', 'job': 'chef' },
+        { '_id': 'E003', '_id_shop': 'B003', 'name': 'Robert', 'lastname': 'Almost','nif': '34566623K', 'phone': '671666332', 'job': 'delivery man' },
+        { '_id': 'E004', '_id_shop': 'B004', 'name': 'Jonh', 'lastName:': 'Oconnor', 'nif': '345987238', 'phone': '674564332', 'job': 'delivery man'},
 
     ])
 
     client.db('pizzeria').collection('Shop').insertMany([
 
-        { '_id': 'B001', 'name': 'The Train', "adress" : {'street': 'c/ carrot black, 56', 'postalCode': 08034, 'city': '04L', 'province': 'LLE'}},
-        { '_id': 'B002', 'name': 'Burguers For you', "adress" : {'street': 'c/ pipe, 566', 'postalCode': 08017, 'city': '03T', 'province': 'TAR'}},
-        { '_id': 'B003', 'name': 'The italian job', "adress" : {'street': 'c/ avocado way, 156', 'postalCode': 08025, 'city': '02G', 'province': 'GIR'}},
-        { '_id': 'B004', 'name': 'Eat shop', "adress" : {'street': 'c/ helm, 487', 'postalCode': 08065, 'city': '01B', 'province': 'BCN'}},
+        { '_id': 'B001', 'name': 'The Train', "adress" : {'street': 'c/ carrot black, 56', 'postalCode': 08034, 'city': 'Lleida', 'province': 'Lleida'}},
+        { '_id': 'B002', 'name': 'Burguers For you', "adress" : {'street': 'c/ pipe, 566', 'postalCode': 08017, 'city': 'Tarragona', 'province': 'Tarragona'}},
+        { '_id': 'B003', 'name': 'The italian job', "adress" : {'street': 'c/ avocado way, 156', 'postalCode': 08025, 'city': 'Girona', 'province': 'Girona'}},
+        { '_id': 'B004', 'name': 'Eat shop', "adress" : {'street': 'c/ helm, 487', 'postalCode': 08065, 'city': 'Barcelona', 'province': 'Barcelona'}},
 
     ])
   
