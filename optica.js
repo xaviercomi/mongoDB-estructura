@@ -117,12 +117,12 @@ client.connect(err => {
   
     client.db('optica').collection('Client').insertMany([
   
-      { '_id': 1, 'nom': 'Josep Rouras', 'codi postal': 08034, 'telefon': '664567634', 'registre': new Date('2015-03-01T08:00:00Z'), 'recomanat': 'Jordi Crap', 'venedor/a': 'Anna Longa'},
-      { '_id': 2, 'nom': 'María Canals', 'codi postal': 08017, 'telefon': '664565634', 'registre': new Date('2017-03-01T08:00:00Z'), 'recomanat': 'Marta Gomis', 'venedor/a': 'Josefina Casa'},
-      { '_id': 3, 'nom': 'Jordi Crap', 'codi postal': 08025, 'telefon': '647567634', 'registre': new Date('2018-08-01T08:00:00Z'), 'recomanat': 'Lorena Brown', 'venedor/a': 'Enriqueta Tomas'},
-      { '_id': 4, 'nom': 'Marta Gomis', 'codi postal': 08045, 'telefon': '623567634', 'registre': new Date('2017-04-01T08:00:00Z'), 'recomanat': 'Jordi Crap', 'venedor': 'Aurelia Hart'},
-      { '_id': 5, 'nom': 'Lorena Brown', 'codi postal': 08080, 'telefon': '665667634', 'registre': new Date('2018-02-01T08:00:00Z'),'venedor/a': 'Josep Array'},
-      { '_id': 6, 'nom': 'Kent Gloss', 'codi postal': 08003, 'telefon': '634567634', 'registre': new Date('2016-03-01T08:00:00Z'), 'recomanat': 'Josep Rouras', 'venedor/a': 'Manel Fous'},
+      { '_id': 1, 'nom': 'Josep Rouras', 'codi postal': 08034, 'telefon': '664567634', 'registre': new Date('2015-03-01T08:00:00Z'), 'recomanat': 1, 'ullera': 'U001', 'venedora': {'_id': 'V1', 'nom': 'Sandra'}},
+      { '_id': 2, 'nom': 'María Canals', 'codi postal': 08017, 'telefon': '664565634', 'registre': new Date('2017-03-01T08:00:00Z'), 'recomanat': 2, 'ullera': 'U002', 'venedor': {'_id': 'V4', 'nom': 'Loli'}},
+      { '_id': 3, 'nom': 'Jordi Crap', 'codi postal': 08025, 'telefon': '647567634', 'registre': new Date('2018-08-01T08:00:00Z'), 'recomanat': 3, 'ullera': 'U003', 'venedor': {'_id': 'V2', 'nom': 'Juan'}},
+      { '_id': 4, 'nom': 'Marta Gomis', 'codi postal': 08045, 'telefon': '623567634', 'registre': new Date('2017-04-01T08:00:00Z'), 'recomanat': 4, 'ullera': 'U001', 'venedor': {'_id': 'V3', 'nom': 'María'}},
+      { '_id': 5, 'nom': 'Lorena Brown', 'codi postal': 08080, 'telefon': '665667634', 'registre': new Date('2018-02-01T08:00:00Z'), 'ullera': 'U001', 'venedor/a': {'_id': 'V1', 'nom': 'Sandra'}},
+      { '_id': 6, 'nom': 'Kent Gloss', 'codi postal': 08003, 'telefon': '634567634', 'registre': new Date('2016-03-01T08:00:00Z'), 'recomanat': 1, 'ullera': 'U003', 'venedor': {'_id': 'V4', 'nom': 'Loli'}}
   
   ]);
 
@@ -134,7 +134,7 @@ client.connect(err => {
 
 });
 
-// setTimeout(function() {
-//   console.log('and we are close!')
-//   client.close()
-// }, 3000);
+setTimeout(function() {
+  console.log('and we are close!')
+  client.close()
+}, 3000);
