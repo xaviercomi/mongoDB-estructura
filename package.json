@@ -1,0 +1,22 @@
+{
+  "name": "mongodb-estructura",
+  "version": "1.0.0",
+  "description": "Sprint_2 Bases de dades noSQL estructures",
+  "main": "optica.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xaviercomi/mongoDB-estructura.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xaviercomi/mongoDB-estructura/issues"
+  },
+  "homepage": "https://github.com/xaviercomi/mongoDB-estructura#readme",
+  "dependencies": {
+    "mongodb": "^4.1.2"
+  }
+}
